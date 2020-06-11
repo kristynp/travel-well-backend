@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(username: 'demo user', password: 'password')
+Destination.create(name: 'paradise', user_id: 1, notes: 'such notes')
