@@ -8,3 +8,4 @@
 
 User.create(username: 'demo user', password: 'password')
 Destination.create(name: 'paradise', user_id: 1, notes: 'such notes')
+CdcInfo.create(destination_id: 1, advisories: "beware", vaccinations: "get them, please")

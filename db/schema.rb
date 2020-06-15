@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_10_205606) do
+ActiveRecord::Schema.define(version: 2020_06_15_210757) do
+
+  create_table "cdc_infos", force: :cascade do |t|
+    t.integer "destination_id"
+    t.string "vaccinations"
+    t.string "advisories"
+    t.string "recommendations"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "destinations", force: :cascade do |t|
     t.string "name"
