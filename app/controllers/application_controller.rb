@@ -1,16 +1,16 @@
 class ApplicationController < ActionController::API
 
-  helpers do
 
-    def current_user 
-      #! mock version of being logged in. Change this.
-      User.first
-    end 
+  # def current_user 
+  #   #! mock version of being logged in. Change this.
+  #   User.first
+  # end 
 
-    def logged_in? 
-      !!current_user
-    end
+  # def logged_in? 
+  #   !!current_user
+  # end
 
-  end
-  
+  # helper_method :current_user, :logged_in?
+
+ 
 end
