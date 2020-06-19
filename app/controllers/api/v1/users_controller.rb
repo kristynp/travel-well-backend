@@ -3,7 +3,10 @@ class Api::V1::UsersController < ApplicationController
 
   def index 
     @users = User.all
-    render json: @users
+    options = {
+      include: [:destinations]
+    }
+    render json: UserSerializer.new(@users, options)
   end
 
   def show
