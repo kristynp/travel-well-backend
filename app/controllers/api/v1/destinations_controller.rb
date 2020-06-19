@@ -2,8 +2,14 @@ class Api::V1::DestinationsController < ApplicationController
   before_action :set_destination, only: [:show, :update, :destroy]
 
   def index 
-    @destinations = Destination.all
-    render json: @destinations
+    if logged_in?
+      @destinations = current_user.destinations
+      render json: @destinations
+    else
+      render json: {
+        error: "You must be logged in to view your destinations"
+      }
+    end
   end
 
   def show
