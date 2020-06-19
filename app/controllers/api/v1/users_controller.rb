@@ -3,17 +3,12 @@ class Api::V1::UsersController < ApplicationController
 
   def index 
     @users = User.all
-    options = {
-      include: [:destinations]
-    }
-    render json: UserSerializer.new(@users, options)
+
+    render json: UserSerializer.new(@users)
   end
 
   def show
-    # render json: @user
-    # json_string = MovieSerializer.new(movie).serialized_json
-    
-    user_json = UserSerializer.new(@user).serialized_json
+    user_json = UserSerializer.new(@user, {include: [:destinations]}).serialized_json
     render json: user_json
   end
 
