@@ -4,7 +4,7 @@ class Api::V1::DestinationsController < ApplicationController
   def index 
     if logged_in?
       @destinations = current_user.destinations
-      render json: @destinations
+      render json: DestinationSerializer.new(@destinations)
     else
       render json: {
         error: "You must be logged in to view your destinations"
