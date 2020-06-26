@@ -19,7 +19,7 @@ class Api::V1::DestinationsController < ApplicationController
   def create
     @destination = Destination.new(destination_params)
     if @destination.save
-      render json: @destination, status: :created
+      render json: DestinationSerializer.new(@destination), status: :created
     else
       error_message = @destination.errors.full_messages.to_sentence
       render json: error_message, status: :unprocessable_entity
