@@ -17,7 +17,7 @@ class Api::V1::DestinationsController < ApplicationController
   end
 
   def create
-    @destination = Destination.new(destination_params)
+    @destination = current_user.destinations.build(destination_params)
     if @destination.save
       render json: DestinationSerializer.new(@destination), status: :created
     else
