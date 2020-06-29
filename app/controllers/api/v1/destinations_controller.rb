@@ -26,11 +26,12 @@ class Api::V1::DestinationsController < ApplicationController
     end
   end
 
-  def update 
-    if @destination.update(user_params)
-      render json: @destination 
-    else 
-      render json: @destination.errors, status: :unprocessable_entity
+  def update
+    if @destination.update(destination_params)
+      render json: DestinationSerializer.new(@destination), status: :ok
+    else
+      error_message = @destination.errors.full_messages.to_sentence
+      render json: error_message, status: :unprocessable_entity
     end
   end 
 
