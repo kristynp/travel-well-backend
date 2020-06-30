@@ -37,7 +37,7 @@ class Api::V1::DestinationsController < ApplicationController
 
   def destroy 
     if @destination.destroy
-      render json: "Destination deleted", status: :ok
+      render json: {message: "Destination deleted"}, status: :ok
     else
       error_message = {error: "Destination not available to delete"}
       render json: error_message, status: :unprocessable_entity
