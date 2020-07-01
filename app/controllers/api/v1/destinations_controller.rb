@@ -53,7 +53,7 @@ class Api::V1::DestinationsController < ApplicationController
   end
 
   def destination_params
-    params.require(:destination).permit(:name, :user_id, :notes)
+    params.require(:destination).permit(:name, :country, :user_id, :notes)
   end
 end
 
