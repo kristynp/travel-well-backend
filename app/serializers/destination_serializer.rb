@@ -1,6 +1,6 @@
 class DestinationSerializer
   include FastJsonapi::ObjectSerializer
   attributes :name, :country, :user_id, :notes, :images
-  has_many :images, serializer: ImageSerializer
+  has_many :images, serializer: ImageSerializer, :comments, CommentSerializer
 end
 
