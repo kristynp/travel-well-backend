@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   post "/api/v1/login", to: "api/v1/sessions#create"
   post "/api/v1/signup", to: "api/v1/users#create"
   delete "/api/v1/logout", to: "api/v1/sessions#destroy"
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
       resources :users 
       resources :destinations
       resources :images, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
     end
   end  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
