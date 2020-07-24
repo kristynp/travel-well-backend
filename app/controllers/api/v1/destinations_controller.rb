@@ -21,10 +21,9 @@ class Api::V1::DestinationsController < ApplicationController
     if @destination.save
       render json: DestinationSerializer.new(@destination), status: :ok
     else
-      error_message = @destination.errors.full_messages.to_sentence
-      render json: error_message, status: :unprocessable_entity
+      render json: { errors: @destination.errors }, status: 422
     end
-  end
+  end 
 
   def update
     if @destination.update(destination_params)
