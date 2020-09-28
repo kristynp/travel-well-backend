@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_22_003437) do
-
-  create_table "comments", force: :cascade do |t|
-    t.string "title"
-    t.text "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "destination_id"
-  end
+ActiveRecord::Schema.define(version: 2020_09_28_011257) do
 
   create_table "destinations", force: :cascade do |t|
     t.string "name"
@@ -37,6 +29,14 @@ ActiveRecord::Schema.define(version: 2020_07_22_003437) do
     t.string "alt_description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "destination_id"
   end
 
   create_table "users", force: :cascade do |t|
